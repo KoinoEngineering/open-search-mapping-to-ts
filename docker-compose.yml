@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    image: node:16
+    volumes:
+      - .:/workspace
+      - node_modules:/workspace/node_modules
+    command: tail -f /dev/null
+volumes:
+  node_modules:

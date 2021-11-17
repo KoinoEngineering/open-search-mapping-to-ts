@@ -1,0 +1,24 @@
+{
+  "name": "open-search-mapping-to-ts",
+  "version": "1.0.0",
+  "description": "open-search-mapping-to-ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KoinoEngineering/open-search-mapping-to-ts.git"
+  },
+  "keywords": [
+    "opensearch",
+    "mapping",
+    "typescript"
+  ],
+  "author": "https://github.com/KoinoEngineering",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KoinoEngineering/open-search-mapping-to-ts/issues"
+  },
+  "homepage": "https://github.com/KoinoEngineering/open-search-mapping-to-ts#readme"
+}

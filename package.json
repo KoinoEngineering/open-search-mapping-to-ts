@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "open-search-mapping-to-ts",
   "main": "dist/index.js",
+  "bin": {
+    "open-search-mapping-to-ts": "dist/index.js"
+  },
   "scripts": {
-    "test": "npm run test"
+    "start": "ts-node -r tsconfig-paths/register src/index.ts",
+    "build": "tsc",
+    "format": "npx prettier --write cli.ts src && NODE_ENV=development npm run lint -- --fix",
+    "lint": "eslint cli.ts src/**",
+    "test": "npm run test",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -20,5 +28,34 @@
   "bugs": {
     "url": "https://github.com/KoinoEngineering/open-search-mapping-to-ts/issues"
   },
-  "homepage": "https://github.com/KoinoEngineering/open-search-mapping-to-ts#readme"
+  "homepage": "https://github.com/KoinoEngineering/open-search-mapping-to-ts#readme",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/fs-extra": "^9.0.13",
+    "@types/lodash": "^4.14.177",
+    "@types/prettier": "^2.4.2",
+    "@types/url-join": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "axios": "^0.24.0",
+    "eslint": "^8.2.0",
+    "fs-extra": "^10.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.0.2",
+    "lodash": "^4.17.21",
+    "prettier": "^2.4.1",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.4",
+    "url-join": "^4.0.1"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "npx prettier --write",
+      "eslint --ext .js,.ts --fix"
+    ],
+    "*.{yaml,yml,json}": [
+      "npx prettier --write"
+    ]
+  }
 }

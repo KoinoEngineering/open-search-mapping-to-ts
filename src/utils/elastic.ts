@@ -1,8 +1,8 @@
-import urlJoin from "url-join";
-import axios, { AxiosRequestConfig } from "axios";
+import axios from "axios";
+import fs from "fs-extra";
 import _ from "lodash";
+import { pascalCase } from "pascal-case";
 import StackError from "../error/StackError";
-import { toPascal } from "./string";
 
 export type ElasticMapping = {
   [k: string]: { mappings: Mapping };
@@ -38,15 +38,20 @@ export function isTypes(x: unknown): x is Types {
   }
 }
 
-const kibanaDefaultIndex = ".kibana_1";
-
-export async function fetchMapping(host: string, index = "_all", config?: AxiosRequestConfig) {
-  return axios.get<ElasticMapping>(urlJoin(host, index, "_mapping"), config).then((r) => {
-    return {
-      ...r,
-      data: _.omit(r.data, kibanaDefaultIndex), // kibanaがデフォルトで作っているインデックスは抜く
-    };
-  });
+export async function fetchMapping(mappingUrl: string) {
+  // 雑判定だがhttp(s)://で始まる場合はaxios
+  // それ以外はfsで取得しに行く
+  if (mappingUrl.match(/^http(s|):\/\//)) {
+    return axios.get<ElasticMapping>(mappingUrl).then((r) => r.data);
+  } else {
+    if (mappingUrl.endsWith("json")) {
+      return fs.readFile(mappingUrl).then((b) => {
+        return JSON.parse(b.toString()) as ElasticMapping;
+      });
+    } else {
+      throw new StackError("ファイルはJSON形式しか対応していません");
+    }
+  }
 }
 
 export const TypeMap = Object.freeze<{ [k in Types]: string }>({ long: "number", text: "string", float: "number", boolean: "boolean" });
@@ -58,7 +63,7 @@ export function generate(es: ElasticMapping) {
 }
 
 function generateInterface(name: string, m: Mapping) {
-  return `export interface ${toPascal(name)} {
+  return `export interface ${pascalCase(name)} {
         ${Object.entries(m.properties)
           .filter(([pname, p]) => {
             if ("properties" in p) {

@@ -1,17 +1,12 @@
-import p from "prettier";
 import fs from "fs-extra";
+import p from "prettier";
 import { fetchMapping, generate } from "../src/utils/elastic";
-import { toPascal } from "./utils/string";
-import urljoin from "url-join";
-export default async function main(host: string, indexName: string = "_all", outDir: string = "generated") {
-  return fetchMapping(host, indexName)
-    .then((m) => {
-      // eslint-disable-next-line no-console
-      console.log(m.data);
-      return m;
-    })
-    .then((m) => p.format(generate(m.data), { parser: "typescript" }))
+export default async function main(mappingUrl: string, outFile: string = "generated/schema.ts") {
+  return fetchMapping(mappingUrl)
+    .then((m) => p.format(generate(m), { parser: "typescript" }))
     .then(async (ifStr) => {
+      const splited = outFile.split("/");
+      const outDir = splited.slice(0, splited.length - 1).join("/");
       return fs
         .pathExists(outDir)
         .then((exist) => {
@@ -23,5 +18,5 @@ export default async function main(host: string, indexName: string = "_all", out
         })
         .then(() => ifStr);
     })
-    .then(async (ifStr) => fs.writeFile(urljoin(outDir, `${toPascal(indexName)}.ts`), ifStr));
+    .then(async (ifStr) => fs.writeFile(outFile, ifStr));
 }

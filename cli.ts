@@ -4,17 +4,12 @@ import StackError from "./src/error/StackError";
 
 const optionDefinitions: commandLineArgs.OptionDefinition[] = [
   {
-    name: "host",
-    alias: "h",
+    name: "url",
+    alias: "u",
     type: String,
   },
   {
-    name: "indexName",
-    alias: "i",
-    type: String,
-  },
-  {
-    name: "outDir",
+    name: "outFile",
     alias: "o",
     type: String,
   },
@@ -26,4 +21,4 @@ if (!options.host) {
   throw new StackError("cli args has no host");
 }
 
-main(options.host, options.indexName, options.outDir);
+main(options.url, options.outFile);

@@ -1,0 +1,1011 @@
+{
+  "rooms-ib-search2-with-schedules": {
+    "mappings": {
+      "properties": {
+        "access": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "approval_rate_": {
+          "type": "float"
+        },
+        "area_search_priority": {
+          "type": "float"
+        },
+        "building_id": {
+          "type": "long"
+        },
+        "building_name": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "buildings_access": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "buildings_building_name": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "buildings_street": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "buildings_zip": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "capacity": {
+          "type": "long"
+        },
+        "closed_at": {
+          "type": "long"
+        },
+        "created_at": {
+          "type": "long"
+        },
+        "daily_max_price": {
+          "type": "long"
+        },
+        "daily_min_price": {
+          "type": "long"
+        },
+        "enable_bring": {
+          "type": "boolean"
+        },
+        "enable_eat": {
+          "type": "boolean"
+        },
+        "enable_park": {
+          "type": "boolean"
+        },
+        "enable_receipt": {
+          "type": "boolean"
+        },
+        "enable_smoke": {
+          "type": "boolean"
+        },
+        "equipment_rooms_description": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "equipment_rooms_plan_type": {
+          "type": "long"
+        },
+        "equipment_rooms_search_priority": {
+          "type": "float"
+        },
+        "equipment_rooms_title": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "equipments_description": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "equipments_id": {
+          "type": "long"
+        },
+        "equipments_title": {
+          "type": "text"
+        },
+        "floor": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "friendly_title": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "id": {
+          "type": "long"
+        },
+        "in2w_approval_rate": {
+          "type": "float"
+        },
+        "is_any_available": {
+          "type": "boolean"
+        },
+        "is_available_in_two_weeks": {
+          "type": "boolean"
+        },
+        "is_community": {
+          "type": "boolean"
+        },
+        "is_display": {
+          "type": "boolean"
+        },
+        "is_enable_address_for_regular": {
+          "type": "boolean"
+        },
+        "is_enable_bank": {
+          "type": "boolean"
+        },
+        "is_enable_extra_booking": {
+          "type": "boolean"
+        },
+        "is_enable_regular": {
+          "type": "boolean"
+        },
+        "is_enable_signboard_for_regular": {
+          "type": "boolean"
+        },
+        "is_enable_storage_for_regular": {
+          "type": "boolean"
+        },
+        "is_enable_visit": {
+          "type": "boolean"
+        },
+        "is_enable_visit_for_regular": {
+          "type": "boolean"
+        },
+        "is_required_email": {
+          "type": "boolean"
+        },
+        "lines_id": {
+          "type": "long"
+        },
+        "lines_title": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "long_description": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "lonlat": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "max_price": {
+          "type": "long"
+        },
+        "min_booking_time": {
+          "type": "long"
+        },
+        "min_price": {
+          "type": "long"
+        },
+        "out2w_approval_rate": {
+          "type": "float"
+        },
+        "plan_id": {
+          "type": "long"
+        },
+        "plan_price_indices_0": {
+          "type": "long"
+        },
+        "plan_price_indices_1": {
+          "type": "long"
+        },
+        "plan_price_indices_10": {
+          "type": "long"
+        },
+        "plan_price_indices_11": {
+          "type": "long"
+        },
+        "plan_price_indices_12": {
+          "type": "long"
+        },
+        "plan_price_indices_13": {
+          "type": "long"
+        },
+        "plan_price_indices_14": {
+          "type": "long"
+        },
+        "plan_price_indices_15": {
+          "type": "long"
+        },
+        "plan_price_indices_16": {
+          "type": "long"
+        },
+        "plan_price_indices_17": {
+          "type": "long"
+        },
+        "plan_price_indices_18": {
+          "type": "long"
+        },
+        "plan_price_indices_19": {
+          "type": "long"
+        },
+        "plan_price_indices_2": {
+          "type": "long"
+        },
+        "plan_price_indices_20": {
+          "type": "long"
+        },
+        "plan_price_indices_21": {
+          "type": "long"
+        },
+        "plan_price_indices_22": {
+          "type": "long"
+        },
+        "plan_price_indices_23": {
+          "type": "long"
+        },
+        "plan_price_indices_24": {
+          "type": "long"
+        },
+        "plan_price_indices_25": {
+          "type": "long"
+        },
+        "plan_price_indices_26": {
+          "type": "long"
+        },
+        "plan_price_indices_27": {
+          "type": "long"
+        },
+        "plan_price_indices_28": {
+          "type": "long"
+        },
+        "plan_price_indices_29": {
+          "type": "long"
+        },
+        "plan_price_indices_3": {
+          "type": "long"
+        },
+        "plan_price_indices_30": {
+          "type": "long"
+        },
+        "plan_price_indices_31": {
+          "type": "long"
+        },
+        "plan_price_indices_32": {
+          "type": "long"
+        },
+        "plan_price_indices_33": {
+          "type": "long"
+        },
+        "plan_price_indices_34": {
+          "type": "long"
+        },
+        "plan_price_indices_35": {
+          "type": "long"
+        },
+        "plan_price_indices_36": {
+          "type": "long"
+        },
+        "plan_price_indices_37": {
+          "type": "long"
+        },
+        "plan_price_indices_38": {
+          "type": "long"
+        },
+        "plan_price_indices_39": {
+          "type": "long"
+        },
+        "plan_price_indices_4": {
+          "type": "long"
+        },
+        "plan_price_indices_40": {
+          "type": "long"
+        },
+        "plan_price_indices_41": {
+          "type": "long"
+        },
+        "plan_price_indices_42": {
+          "type": "long"
+        },
+        "plan_price_indices_43": {
+          "type": "long"
+        },
+        "plan_price_indices_44": {
+          "type": "long"
+        },
+        "plan_price_indices_45": {
+          "type": "long"
+        },
+        "plan_price_indices_46": {
+          "type": "long"
+        },
+        "plan_price_indices_47": {
+          "type": "long"
+        },
+        "plan_price_indices_48": {
+          "type": "long"
+        },
+        "plan_price_indices_49": {
+          "type": "long"
+        },
+        "plan_price_indices_5": {
+          "type": "long"
+        },
+        "plan_price_indices_50": {
+          "type": "long"
+        },
+        "plan_price_indices_51": {
+          "type": "long"
+        },
+        "plan_price_indices_52": {
+          "type": "long"
+        },
+        "plan_price_indices_53": {
+          "type": "long"
+        },
+        "plan_price_indices_54": {
+          "type": "long"
+        },
+        "plan_price_indices_55": {
+          "type": "long"
+        },
+        "plan_price_indices_56": {
+          "type": "long"
+        },
+        "plan_price_indices_57": {
+          "type": "long"
+        },
+        "plan_price_indices_58": {
+          "type": "long"
+        },
+        "plan_price_indices_59": {
+          "type": "long"
+        },
+        "plan_price_indices_6": {
+          "type": "long"
+        },
+        "plan_price_indices_60": {
+          "type": "long"
+        },
+        "plan_price_indices_61": {
+          "type": "long"
+        },
+        "plan_price_indices_62": {
+          "type": "long"
+        },
+        "plan_price_indices_63": {
+          "type": "long"
+        },
+        "plan_price_indices_64": {
+          "type": "long"
+        },
+        "plan_price_indices_65": {
+          "type": "long"
+        },
+        "plan_price_indices_66": {
+          "type": "long"
+        },
+        "plan_price_indices_67": {
+          "type": "long"
+        },
+        "plan_price_indices_68": {
+          "type": "long"
+        },
+        "plan_price_indices_69": {
+          "type": "long"
+        },
+        "plan_price_indices_7": {
+          "type": "long"
+        },
+        "plan_price_indices_70": {
+          "type": "long"
+        },
+        "plan_price_indices_71": {
+          "type": "long"
+        },
+        "plan_price_indices_8": {
+          "type": "long"
+        },
+        "plan_price_indices_9": {
+          "type": "long"
+        },
+        "plan_price_indices_id": {
+          "type": "long"
+        },
+        "plan_slot_indices_0": {
+          "type": "long"
+        },
+        "plan_slot_indices_1": {
+          "type": "long"
+        },
+        "plan_slot_indices_10": {
+          "type": "long"
+        },
+        "plan_slot_indices_11": {
+          "type": "long"
+        },
+        "plan_slot_indices_12": {
+          "type": "long"
+        },
+        "plan_slot_indices_13": {
+          "type": "long"
+        },
+        "plan_slot_indices_14": {
+          "type": "long"
+        },
+        "plan_slot_indices_15": {
+          "type": "long"
+        },
+        "plan_slot_indices_16": {
+          "type": "long"
+        },
+        "plan_slot_indices_17": {
+          "type": "long"
+        },
+        "plan_slot_indices_18": {
+          "type": "long"
+        },
+        "plan_slot_indices_19": {
+          "type": "long"
+        },
+        "plan_slot_indices_2": {
+          "type": "long"
+        },
+        "plan_slot_indices_20": {
+          "type": "long"
+        },
+        "plan_slot_indices_21": {
+          "type": "long"
+        },
+        "plan_slot_indices_22": {
+          "type": "long"
+        },
+        "plan_slot_indices_23": {
+          "type": "long"
+        },
+        "plan_slot_indices_24": {
+          "type": "long"
+        },
+        "plan_slot_indices_25": {
+          "type": "long"
+        },
+        "plan_slot_indices_26": {
+          "type": "long"
+        },
+        "plan_slot_indices_27": {
+          "type": "long"
+        },
+        "plan_slot_indices_28": {
+          "type": "long"
+        },
+        "plan_slot_indices_29": {
+          "type": "long"
+        },
+        "plan_slot_indices_3": {
+          "type": "long"
+        },
+        "plan_slot_indices_30": {
+          "type": "long"
+        },
+        "plan_slot_indices_31": {
+          "type": "long"
+        },
+        "plan_slot_indices_32": {
+          "type": "long"
+        },
+        "plan_slot_indices_33": {
+          "type": "long"
+        },
+        "plan_slot_indices_34": {
+          "type": "long"
+        },
+        "plan_slot_indices_35": {
+          "type": "long"
+        },
+        "plan_slot_indices_36": {
+          "type": "long"
+        },
+        "plan_slot_indices_37": {
+          "type": "long"
+        },
+        "plan_slot_indices_38": {
+          "type": "long"
+        },
+        "plan_slot_indices_39": {
+          "type": "long"
+        },
+        "plan_slot_indices_4": {
+          "type": "long"
+        },
+        "plan_slot_indices_40": {
+          "type": "long"
+        },
+        "plan_slot_indices_41": {
+          "type": "long"
+        },
+        "plan_slot_indices_42": {
+          "type": "long"
+        },
+        "plan_slot_indices_43": {
+          "type": "long"
+        },
+        "plan_slot_indices_44": {
+          "type": "long"
+        },
+        "plan_slot_indices_45": {
+          "type": "long"
+        },
+        "plan_slot_indices_46": {
+          "type": "long"
+        },
+        "plan_slot_indices_47": {
+          "type": "long"
+        },
+        "plan_slot_indices_48": {
+          "type": "long"
+        },
+        "plan_slot_indices_49": {
+          "type": "long"
+        },
+        "plan_slot_indices_5": {
+          "type": "long"
+        },
+        "plan_slot_indices_50": {
+          "type": "long"
+        },
+        "plan_slot_indices_51": {
+          "type": "long"
+        },
+        "plan_slot_indices_52": {
+          "type": "long"
+        },
+        "plan_slot_indices_53": {
+          "type": "long"
+        },
+        "plan_slot_indices_54": {
+          "type": "long"
+        },
+        "plan_slot_indices_55": {
+          "type": "long"
+        },
+        "plan_slot_indices_56": {
+          "type": "long"
+        },
+        "plan_slot_indices_57": {
+          "type": "long"
+        },
+        "plan_slot_indices_58": {
+          "type": "long"
+        },
+        "plan_slot_indices_59": {
+          "type": "long"
+        },
+        "plan_slot_indices_6": {
+          "type": "long"
+        },
+        "plan_slot_indices_60": {
+          "type": "long"
+        },
+        "plan_slot_indices_61": {
+          "type": "long"
+        },
+        "plan_slot_indices_62": {
+          "type": "long"
+        },
+        "plan_slot_indices_63": {
+          "type": "long"
+        },
+        "plan_slot_indices_64": {
+          "type": "long"
+        },
+        "plan_slot_indices_65": {
+          "type": "long"
+        },
+        "plan_slot_indices_66": {
+          "type": "long"
+        },
+        "plan_slot_indices_67": {
+          "type": "long"
+        },
+        "plan_slot_indices_68": {
+          "type": "long"
+        },
+        "plan_slot_indices_69": {
+          "type": "long"
+        },
+        "plan_slot_indices_7": {
+          "type": "long"
+        },
+        "plan_slot_indices_70": {
+          "type": "long"
+        },
+        "plan_slot_indices_71": {
+          "type": "long"
+        },
+        "plan_slot_indices_8": {
+          "type": "long"
+        },
+        "plan_slot_indices_9": {
+          "type": "long"
+        },
+        "plan_slot_indices_id": {
+          "type": "long"
+        },
+        "plan_type": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "prefecture_search_priority": {
+          "type": "float"
+        },
+        "prefectures_id": {
+          "type": "long"
+        },
+        "prefectures_name": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "prefectures_name_without_suffix": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "priority": {
+          "type": "long"
+        },
+        "released_at": {
+          "type": "long"
+        },
+        "review_count": {
+          "type": "long"
+        },
+        "room_id": {
+          "type": "long"
+        },
+        "room_images_id": {
+          "type": "text"
+        },
+        "room_images_image": {
+          "type": "text"
+        },
+        "room_images_s3_image_path": {
+          "type": "text"
+        },
+        "room_space_categories_search_priority": {
+          "type": "float"
+        },
+        "room_stations_distance_meter": {
+          "type": "long"
+        },
+        "room_stations_search_priority": {
+          "type": "float"
+        },
+        "room_stations_station_id": {
+          "type": "long"
+        },
+        "room_tags_search_priority": {
+          "type": "float"
+        },
+        "room_type": {
+          "type": "long"
+        },
+        "room_usages_search_priority": {
+          "type": "float"
+        },
+        "search_priority": {
+          "type": "float"
+        },
+        "seat_capacity": {
+          "type": "long"
+        },
+        "seo_description": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "seo_title": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "space_categories_id": {
+          "type": "long"
+        },
+        "space_categories_title": {
+          "type": "text"
+        },
+        "stations": {
+          "properties": {
+            "id": {
+              "type": "long"
+            },
+            "title": {
+              "type": "text",
+              "fields": {
+                "keyword_kuromoji": {
+                  "type": "text",
+                  "analyzer": "my_kuromoji_analyzer"
+                },
+                "keyword_ngram": {
+                  "type": "text",
+                  "analyzer": "my_ngram_analyzer"
+                }
+              }
+            },
+            "title_without_suffix": {
+              "type": "text",
+              "fields": {
+                "keyword_kuromoji": {
+                  "type": "text",
+                  "analyzer": "my_kuromoji_analyzer"
+                },
+                "keyword_ngram": {
+                  "type": "text",
+                  "analyzer": "my_ngram_analyzer"
+                }
+              }
+            }
+          }
+        },
+        "stations_id": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "stations_title": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "stations_title_without_suffix": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "street": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "tags_id": {
+          "type": "long"
+        },
+        "tags_role": {
+          "type": "long"
+        },
+        "tags_title": {
+          "type": "text"
+        },
+        "title": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "total_point": {
+          "type": "long"
+        },
+        "towns_id": {
+          "type": "long"
+        },
+        "towns_name": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "updated_at": {
+          "type": "long"
+        },
+        "usages_id": {
+          "type": "long"
+        },
+        "usages_title": {
+          "type": "text"
+        },
+        "wards_id": {
+          "type": "long"
+        },
+        "wards_name": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        },
+        "zip": {
+          "type": "text",
+          "fields": {
+            "keyword_kuromoji": {
+              "type": "text",
+              "analyzer": "my_kuromoji_analyzer"
+            },
+            "keyword_ngram": {
+              "type": "text",
+              "analyzer": "my_ngram_analyzer"
+            }
+          }
+        }
+      }
+    }
+  }
+}

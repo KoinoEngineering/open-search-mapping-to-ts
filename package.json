@@ -1,5 +1,6 @@
 {
   "name": "open-search-mapping-to-ts",
+  "private": true,
   "version": "1.0.0",
   "description": "open-search-mapping-to-ts",
   "main": "dist/index.js",

@@ -26,6 +26,6 @@ open-search-mapping-to-ts
         |名前|エイリアス|必須|デフォルト|説明
         |-|-|-|-|-|
         |url|u| :o: |-|mappingへのURL(http://~ or https://~ or jsonへのファイルパス)|
-        |outFile|o| :x: |generated/schmea.ts|出力先ファイルパス|
+        |outFile|o| :x: |generated/schema.ts|出力先ファイルパス|
         |requiredAll|r| :x: |false|プロパティすべてを必須項目にする|
 

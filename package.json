@@ -4,11 +4,12 @@
   "description": "open-search-mapping-to-ts",
   "main": "dist/index.js",
   "bin": {
-    "open-search-mapping-to-ts": "dist/index.js"
+    "open-search-mapping-to-ts": "bin/open-search-mapping-to-ts"
   },
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register index.ts",
     "build": "tsc",
+    "postinstall": "postinstall-build dist",
     "format": "npx prettier --write cli.ts index.ts src && NODE_ENV=development npm run lint -- --fix",
     "lint": "eslint cli.ts index.ts src/**/**.ts",
     "test": "npm run test",
@@ -40,6 +41,7 @@
     "@typescript-eslint/parser": "^5.4.0",
     "axios": "^0.24.0",
     "command-line-args": "^5.2.0",
+    "dotenv": "^10.0.0",
     "eslint": "^8.2.0",
     "fs-extra": "^10.0.0",
     "husky": "^7.0.4",
@@ -60,5 +62,8 @@
     "*.{yaml,yml,json}": [
       "npx prettier --write"
     ]
+  },
+  "dependencies": {
+    "postinstall-build": "^5.0.3"
   }
 }

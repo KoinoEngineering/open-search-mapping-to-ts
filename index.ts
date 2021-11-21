@@ -1,5 +1,10 @@
 import main from "./src";
-const url = "http://localhost:8083/rooms-ib-search2-with-schedules/_mapping?format=json";
-// const url ="sample_mapping.json"
-const outFile = "src/generated/rooms-ib-search2-with-schedules-axios.ts";
-main(url, outFile);
+import dotEnv from "dotenv";
+dotEnv.config();
+
+if (process.env.MAPPING_URL) {
+  main(process.env.MAPPING_URL, process.env.OUT_FILE);
+} else {
+  // eslint-disable-next-line no-console
+  console.log("MAPPING_URL is not set");
+}

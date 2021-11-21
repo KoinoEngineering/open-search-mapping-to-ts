@@ -2,6 +2,7 @@ import axios from "axios";
 import fs from "fs-extra";
 import _ from "lodash";
 import { pascalCase } from "pascal-case";
+import { Options } from "..";
 import StackError from "../error/StackError";
 
 export type ElasticMapping = {
@@ -16,12 +17,17 @@ export interface Properties {
   [key: string]: Property;
 }
 
-export interface Property {
+export type Property = Primitive | Mapping;
+
+interface Primitive {
   type: Types;
 }
 
 export type Types = "long" | "text" | "float" | "boolean";
 export const AllTypes = Object.freeze<Types[]>(["long", "text", "float", "boolean"]);
+function isNestedObject(p: Property): p is Mapping {
+  return "properties" in p;
+}
 
 /**
  * 与えられた値がTypesに含まれるかどうか判定する
@@ -56,29 +62,33 @@ export async function fetchMapping(mappingUrl: string) {
 
 export const TypeMap = Object.freeze<{ [k in Types]: string }>({ long: "number", text: "string", float: "number", boolean: "boolean" });
 
-export function generate(es: ElasticMapping) {
-  return Object.entries(es)
-    .map(([key, map]) => generateInterface(key, map.mappings))
-    .join("\n\n");
+export async function generate(es: ElasticMapping, options: Options) {
+  return Promise.all(
+    Object.entries(es).map(async ([key, map]) => {
+      const thread: Promise<string>[] = [];
+      thread.push(generateInterface(key, map.mappings, options, thread));
+      return Promise.all(thread).then((ifList) => ifList.join("\n"));
+    })
+  ).then((ifList) => ifList.join("\n\n"));
 }
 
-function generateInterface(name: string, m: Mapping) {
+async function generateInterface(name: string, m: Mapping, options: Options, thread: Promise<string>[] = []) {
   return `export interface ${pascalCase(name)} {
         ${Object.entries(m.properties)
-          .filter(([pname, p]) => {
-            if ("properties" in p) {
-              // eslint-disable-next-line no-console
-              console.log(`${name}.${pname}はオブジェクトです。現在は無視されます`);
-              return true;
+          .map(([pname, p]) => {
+            if (isNestedObject(p)) {
+              const childName = pascalCase(name) + pascalCase(pname);
+              // スレッドに子インターフェース作成タスクを詰めて、ここでは名前だけ返しておく
+              thread.push(generateInterface(childName, p, options, thread));
+              return `"${pname}"? : ${childName}`;
             } else {
               try {
-                return isTypes(p.type);
+                return `"${pname}"${options.requiredAll ? "" : "?"} : ${isTypes(p.type) ? TypeMap[p.type] : "any"}`;
               } catch (e) {
                 throw new StackError(`${name}.${pname}でエラーが発生しました:${JSON.stringify(p)}`, e as Error);
               }
             }
           })
-          .map(([key, p]) => `"${key}"? : ${TypeMap[p.type] || "any"}`)
           .join("\n")}
     }`;
 }

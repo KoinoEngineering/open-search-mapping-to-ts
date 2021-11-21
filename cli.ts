@@ -1,8 +1,8 @@
 import commandLineArgs from "command-line-args";
-import main from "./src";
+import main, { Options } from "./src";
 import StackError from "./src/error/StackError";
 
-const optionDefinitions: commandLineArgs.OptionDefinition[] = [
+const options = commandLineArgs([
   {
     name: "url",
     alias: "u",
@@ -13,12 +13,16 @@ const optionDefinitions: commandLineArgs.OptionDefinition[] = [
     alias: "o",
     type: String,
   },
-];
+  {
+    name: "requiredAll",
+    alias: "r",
+    type: Boolean,
+    defaultValue: false,
+  },
+]);
 
-const options = commandLineArgs(optionDefinitions);
-
-if (!options.host) {
-  throw new StackError("cli args has no host");
+if (!options.url) {
+  throw new StackError("cli args has no url");
 }
 
-main(options.url, options.outFile);
+main(options.url, options.outFile, options as Options);
